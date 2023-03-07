@@ -36,7 +36,7 @@ This is a simple web page that allows users to search for games from the Giant B
 2. Use the search bar to search for games by keyword.
 3. Click the "Search" button to retrieve a list of matching games from the Giant Bomb API.
 4. Click the "Rent" button on any game to add it to your rental cart.
-5. Navigate to the "Checkout" page using the navigation links to view your cart and complete your rental.
+5. Navigate to the "Checkout" page using the navigation links to view your cart, remove games, and checkout games.
 
 ### Files
 search.html
