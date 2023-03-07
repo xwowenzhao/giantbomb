@@ -65,7 +65,7 @@ static/styles.css
 This file contains the styles for the checkout page, including the layout, colors, and fonts.
 
 static/checkout.js
-This file contains the JavaScript code that handles search functionality, including retrieving data from the Giant Bomb API and updating the list of games.
+This file contains the JavaScript code that handles checkout functionality, including removing games from your rental cart and checkout your rental.
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
