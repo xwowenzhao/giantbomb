@@ -43,7 +43,7 @@ search.html
 This file contains the basic structure and content of the web page, including the search bar.
 
 static/styles.css
-This file contains the styles for the checkout page, including the layout, colors, and fonts.
+This file contains the styles for the search page, including the layout, colors, and fonts.
 
 static/search.js
 This file contains the JavaScript code that handles search functionality, including adding games to your rental cart.
