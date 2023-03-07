@@ -40,16 +40,16 @@ This is a simple web page that allows users to search for games from the Giant B
 
 ### Files
 search.html
-This file contains the basic structure and content of the web page, including the search bar and rental cart.
+This file contains the basic structure and content of the web page, including the search bar.
 
 static/styles.css
 This file contains the styles for the checkout page, including the layout, colors, and fonts.
 
 static/search.js
-This file contains the JavaScript code that handles search functionality, including retrieving the contents of the rental cart and processing the rental.
+This file contains the JavaScript code that handles search functionality, including adding games to your rental cart.
 
 ## Giant Bomb Game Rental - Checkout Page
-This is a simple web page that displays the contents of a user's rental cart and allows them to complete their rental. The page consists of an HTML file, a CSS file for styling, and a JavaScript file for handling checkout functionality.
+This is a simple web page that allows users to view their rental cart, remove games from it, and complete their rental. The page consists of an HTML file, a CSS file for styling, and a JavaScript file for handling checkout functionality.
 
 ### Usage
 1. Open the checkout.html file in a web browser.
