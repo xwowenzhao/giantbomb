@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
       rentButton.addEventListener('click', () => {
         const gamePrice = rentButton.getAttribute('data-price');
         const gameGuid = rentButton.getAttribute('data-guid');
-        const url = `http://localhost:3000/api/game/${gameGuid}/?api_key=8ee9bd83db16d30d5369ced3c2c5a8d767036212&format=json&field_list=guid,id,name,image`;
+        const url = `http://localhost:3000/api/game/${gameGuid}/?api_key=[api_key]&format=json&field_list=guid,id,name,image`;
 
         // Make the API request
         fetch(url)
