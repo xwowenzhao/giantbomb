@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
+  const apiKey = "Your giant bomb api key";
   const searchInput = document.getElementById('search-input');
   const searchButton = document.getElementById('search-button');
   const gameList = document.getElementById('game-list');
@@ -49,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
       rentButton.addEventListener('click', () => {
         const gamePrice = rentButton.getAttribute('data-price');
         const gameGuid = rentButton.getAttribute('data-guid');
-        const url = `http://localhost:3000/api/game/${gameGuid}/?api_key=8ee9bd83db16d30d5369ced3c2c5a8d767036212&format=json&field_list=guid,name,image`;
+        const url = `http://localhost:3000/api/game/${gameGuid}/?api_key=${apiKey}&format=json&field_list=guid,name,image`;
 
         // Make the API request
         fetch(url)
@@ -75,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const query = searchInput.value;
 
     // Build the API URL with the search query
-    const url = `http://localhost:3000/api/games/?api_key=8ee9bd83db16d30d5369ced3c2c5a8d767036212&format=json&field_list=guid,name,image&filter=name:${query}`;
+    const url = `http://localhost:3000/api/games/?api_key=${apiKey}&format=json&field_list=guid,name,image&filter=name:${query}`;
 
     // Make the API request
     fetch(url)
