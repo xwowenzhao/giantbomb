@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Remove a game from the cart
   function removeFromCart(gameId) {
     // Find the index of the game in the cart
-    const index = cart.findIndex(item => item.id == gameId);
+    const index = cart.findIndex(item => item.guid == gameId);
     if (index > -1) {
       // If the game is in the cart, remove it
       cart.splice(index, 1);
@@ -31,20 +31,20 @@ document.addEventListener("DOMContentLoaded", function () {
       const cartItem = document.createElement('div');
       cartItem.classList.add('cart-item');
       cartItem.innerHTML = `
-          <img src="${item.image}" alt="${item.title}">
+          <img src="${item.image}" alt="${item.name}">
           <div>
-            <h3>${item.title}</h3>
+            <h3>${item.name}</h3>
             <p>$${item.price} x ${item.quantity}</p>
           </div>
-          <button data-id="${item.id}">Remove</button>
+          <button data-guid="${item.guid}">Remove</button>
         `;
       cartList.appendChild(cartItem);
 
       // Add an event listener to the Remove button to remove the game from the cart
       const removeButton = cartItem.querySelector('button');
       removeButton.addEventListener('click', () => {
-        const gameId = removeButton.getAttribute('data-id');
-        removeFromCart(gameId);
+        const gameGuid = removeButton.getAttribute('data-guid');
+        removeFromCart(gameGuid);
       });
     });
 
@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
   checkoutButton.addEventListener('click', () => {
     var totalPrice = 0;
     cart.forEach(item => {
-      totalPrice = totalPrice + parseInt(item.price);
+      totalPrice += parseInt(item.price) * item.quantity;
     });
     alert(`Total price: $${totalPrice}.`);
   });

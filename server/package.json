@@ -2,10 +2,10 @@
     "name": "giant-bomb-node-proxy",
     "version": "1.0.0",
     "description": "Node.js proxy for the Giant Bomb API",
-    "main": "app.js",
+    "main": "app.mjs",
     "scripts": {
         "start": "nodemon --experimental-modules app.mjs"
-    },
+     },
     "dependencies": {
         "cors": "^2.8.5",
         "express": "^4.17.1",

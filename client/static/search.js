@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Add a game to the cart
   function addToCart(game) {
     // Check if the game is already in the cart
-    const index = cart.findIndex(item => item.id === game.id);
+    const index = cart.findIndex(item => item.guid === game.guid);
     if (index > -1) {
       // If the game is already in the cart, increase the quantity
       cart[index].quantity++;
@@ -17,8 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
       // If the game is not in the cart, add it with a quantity of 1
       cart.push({
         guid: game.guid,
-        id: game.id,
-        title: game.title,
+        name: game.name,
         image: game.image.medium_url,
         price: game.price,
         quantity: 1
@@ -39,8 +38,8 @@ document.addEventListener("DOMContentLoaded", function () {
       const card = document.createElement('div');
       card.classList.add('game-card');
       card.innerHTML = `
-        <img src="${game.image.medium_url}" alt="${game.title}">
-        <h2>${game.title}</h2>
+        <img src="${game.image.medium_url}" alt="${game.name}">
+        <h2>${game.name}</h2>
         <button data-guid="${game.guid}" data-price="${game.price}">$${game.price} - Rent</button>
       `;
       gameList.appendChild(card);
@@ -50,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
       rentButton.addEventListener('click', () => {
         const gamePrice = rentButton.getAttribute('data-price');
         const gameGuid = rentButton.getAttribute('data-guid');
-        const url = `http://localhost:3000/api/game/${gameGuid}/?api_key=[api_key]&format=json&field_list=guid,id,name,image`;
+        const url = `http://localhost:3000/api/game/${gameGuid}/?api_key=8ee9bd83db16d30d5369ced3c2c5a8d767036212&format=json&field_list=guid,name,image`;
 
         // Make the API request
         fetch(url)
@@ -60,8 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const game = data.results;
             const gameData = ({
               guid: game.guid,
-              id: game.id,
-              title: game.name,
+              name: game.name,
               image: game.image,
               price: gamePrice
             });
@@ -77,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const query = searchInput.value;
 
     // Build the API URL with the search query
-    const url = `http://localhost:3000/api/games/?api_key=8ee9bd83db16d30d5369ced3c2c5a8d767036212&format=json&field_list=guid,id,name,image&filter=name:${query}`;
+    const url = `http://localhost:3000/api/games/?api_key=8ee9bd83db16d30d5369ced3c2c5a8d767036212&format=json&field_list=guid,name,image&filter=name:${query}`;
 
     // Make the API request
     fetch(url)
@@ -86,8 +84,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // Extract the game data from the API response
         const gameData = data.results.map(game => ({
           guid: game.guid,
-          id: game.id,
-          title: game.name,
+          name: game.name,
           image: game.image,
           price: Math.floor(Math.random() * 5 + 1) // Set a random rental price per game
         }));

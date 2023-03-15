@@ -16,7 +16,7 @@ app.get('/api/games', (req, res) => {
     .catch(error => console.log(error));
 });
 
-app.get('/api/game/:id', (req, res) => {
+app.get('/api/game/:guid', (req, res) => {
   const endpoint = `https://www.giantbomb.com${req.url}`;
   console.log(`Request URL: ${endpoint}`);
   fetch(endpoint)
